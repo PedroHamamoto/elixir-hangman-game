@@ -1,18 +1,8 @@
 defmodule Dictionary do
-  @moduledoc """
-  Documentation for `Dictionary`.
-  """
 
-  @doc """
-  Hello world.
+  alias Dictionary.Impl.WordList
 
-  ## Examples
+  @spec random_word :: String.t
+  defdelegate random_word, to: WordList
 
-      iex> Dictionary.hello()
-      :world
-
-  """
-  def hello do
-    :world
-  end
 end
