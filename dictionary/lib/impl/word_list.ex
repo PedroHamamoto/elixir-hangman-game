@@ -1,6 +1,5 @@
 defmodule Dictionary.Impl.WordList do
 
-  @spec random_word :: String.t
   def random_word() do
     word_list()
     |> Enum.random()
