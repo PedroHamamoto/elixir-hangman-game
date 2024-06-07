@@ -34,6 +34,15 @@ defmodule Hangman.Impl.Game do
     |> return_with_tally()
   end
 
+  def make_move(game, guess) do
+    accept_guess(game, guess, MapSet.member?(game.used, guess))
+    |> return_with_tally
+  end
+
+  defp accept_guess(game, _guess, _already_used = true) do
+    %{ game | game_state: :already_used }
+  end
+
   def return_with_tally(game) do
     { game, tally(game) }
   end

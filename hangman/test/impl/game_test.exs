@@ -23,6 +23,13 @@ defmodule Hangman.Impl.GameTest do
     end
   end
 
+  test "should return already used when guess an previous used letter" do
+    game = Game.new_game()
+    game = %{ game | used: MapSet.new([ "a" ]) }
+    { new_game, _tally } = Game.make_move(game, "a")
+
+    assert new_game.game_state == :already_used
+  end
 
 
 end
